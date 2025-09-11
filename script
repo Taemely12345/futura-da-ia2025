@@ -1,0 +1,17 @@
+const caixaPrincipal - document.querySelector(".caixa-principal");
+const caixaPerguntas -document.querySelector("caixa-perguntas");
+const caixaAlternativas -document.querySelector("caixa-alternativas");
+const caixaResultado -document.querySelector("caixa-resultado");
+const caixaResultado -document.querySelector("texto-resultado");
+
+const perguntas -[
+    {
+        enunciando:
+    Qual o futuro da IA?
+    A-No futuro, a inteligência artificial dominarà completamente os humanos e tomarà controle total do mundo.
+    B-Espera-se que a IA continue a evoluir,tornando-se mais sofisticada.
+]
+ }
+{
+    enunciado:
+

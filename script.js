@@ -8,7 +8,7 @@ const perguntas -[
     {
         enunciando:
     Qual o futuro da IA?
-    A-No futuro, a inteligência artificial dominarà completamente os humanos e tomarà controle total do mundo.
+    A-No futuro,a inteligência artificial dominarà completamente os humanos e tomarà controle total do mundo.
     B-Espera-se que a IA continue a evoluir,tornando-se mais sofisticada.
 ]
  }
@@ -42,5 +42,53 @@ B-Deixando que a IA aprenda tudo sozinha,sem regras,porque ela sabe melhor que o
   }
   }
 
-  
- 
+  let atual = 0;
+  let perguntasAtual;
+
+  function mostraPerguntas() {
+    perguntasAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntas.enunciado;
+    mostraAlternativas();
+  }
+
+function mostraAlternativas() {
+    for(const alternativas of perguntasAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativas;
+        caixaAlternativas.appendChild(botaoAlternativa);
+    }
+}
+
+mostraPerguntas();
+
+
+
+
+
+
+
+
+
+
+];
+
+let atual = 0;
+let perguntaAtual;
+let historiaFinal ="";
+
+function mostraPerguntas() {
+    perguntasAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
+    }
+
+    function mostraAlternativas(){
+        for(const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click",() => respostaSelecionada (alternativas));
+        caixaAlternativas.appendChild(botaoAlternativas);
+        }
+    }
+
+    function respostaSelecionada(opcaoSelecionada){

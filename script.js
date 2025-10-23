@@ -1,4 +1,4 @@
-// Seleciona os elementos
+
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
@@ -6,7 +6,7 @@ const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 const botaoReiniciar = document.getElementById("reiniciar");
 
-// Lista de perguntas
+
 const perguntas = [
   {
     enunciado: "Qual o futuro da IA?",
@@ -47,10 +47,7 @@ const perguntas = [
 
 let atual = 0;
 let historiaFinal = "";
-
-// Mostra a pergunta atual
 function mostraPergunta() {
-  // Se não há mais perguntas, mostra o resultado
   if (atual >= perguntas.length) {
     mostraResultado();
     return;
@@ -60,7 +57,6 @@ function mostraPergunta() {
   caixaPerguntas.textContent = perguntaAtual.enunciado;
   caixaAlternativas.innerHTML = "";
 
-  // Cria botões para as alternativas
   perguntaAtual.alternativas.forEach(alternativa => {
     const botao = document.createElement("button");
     botao.textContent = alternativa;
@@ -69,21 +65,21 @@ function mostraPergunta() {
   });
 }
 
-// Quando o usuário escolhe uma resposta
+
 function respostaSelecionada(opcao) {
   historiaFinal += `\n${opcao}`;
   atual++;
   mostraPergunta();
 }
 
-// Mostra o resultado final
+
 function mostraResultado() {
   caixaPrincipal.style.display = "none";
   caixaResultado.style.display = "block";
   textoResultado.textContent = "Suas respostas:\n" + historiaFinal;
 }
 
-// Reinicia o quiz
+
 botaoReiniciar.addEventListener("click", () => {
   atual = 0;
   historiaFinal = "";
@@ -92,7 +88,7 @@ botaoReiniciar.addEventListener("click", () => {
   mostraPergunta();
 });
 
-// Inicia o quiz
+
 mostraPergunta();
 
 

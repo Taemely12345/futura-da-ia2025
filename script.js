@@ -1,15 +1,18 @@
+// Seleciona os elementos
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
+const botaoReiniciar = document.getElementById("reiniciar");
 
+// Lista de perguntas
 const perguntas = [
   {
     enunciado: "Qual o futuro da IA?",
     alternativas: [
       "A - No futuro, a inteligência artificial dominará completamente os humanos e tomará controle total do mundo.",
-      "B - Espera-se que a IA continue a evoluir, tornando-se mais sofisticada."
+      "B - Espera-se que a IA continue a evoluir, tornando-se mais sofisticada e útil."
     ]
   },
   {
@@ -22,7 +25,7 @@ const perguntas = [
   {
     enunciado: "A IA vai aumentar ou reduzir a desigualdade social?",
     alternativas: [
-      "A - Depende de como for usada.",
+      "A - Depende de como for usada e distribuída.",
       "B - A IA sempre vai reduzir a desigualdade, pois todo mundo já tem acesso à tecnologia."
     ]
   },
@@ -30,7 +33,7 @@ const perguntas = [
     enunciado: "Você acredita que a IA vai dominar o mundo?",
     alternativas: [
       "A - Sim, a IA vai dominar o mundo em breve.",
-      "B - A inteligência artificial é uma ferramenta poderosa que pode transformar vários aspectos da vida humana."
+      "B - A IA é uma ferramenta poderosa que pode transformar positivamente a vida humana."
     ]
   },
   {
@@ -43,36 +46,32 @@ const perguntas = [
 ];
 
 let atual = 0;
-let perguntaAtual;
 let historiaFinal = "";
 
-// Função para mostrar a pergunta atual
+// Mostra a pergunta atual
 function mostraPergunta() {
+  // Se não há mais perguntas, mostra o resultado
   if (atual >= perguntas.length) {
     mostraResultado();
     return;
   }
 
-  perguntaAtual = perguntas[atual];
+  const perguntaAtual = perguntas[atual];
   caixaPerguntas.textContent = perguntaAtual.enunciado;
   caixaAlternativas.innerHTML = "";
 
-  mostraAlternativas();
+  // Cria botões para as alternativas
+  perguntaAtual.alternativas.forEach(alternativa => {
+    const botao = document.createElement("button");
+    botao.textContent = alternativa;
+    botao.addEventListener("click", () => respostaSelecionada(alternativa));
+    caixaAlternativas.appendChild(botao);
+  });
 }
 
-// Função para mostrar as alternativas da pergunta atual
-function mostraAlternativas() {
-  for (const alternativa of perguntaAtual.alternativas) {
-    const botaoAlternativa = document.createElement("button");
-    botaoAlternativa.textContent = alternativa;
-    botaoAlternativa.addEventListener("click", () => respostaSelecionada(alternativa));
-    caixaAlternativas.appendChild(botaoAlternativa);
-  }
-}
-
-// Função que lida com o clique da resposta
-function respostaSelecionada(opcaoSelecionada) {
-  historiaFinal += opcaoSelecionada + " ";
+// Quando o usuário escolhe uma resposta
+function respostaSelecionada(opcao) {
+  historiaFinal += `\n${opcao}`;
   atual++;
   mostraPergunta();
 }
@@ -81,8 +80,19 @@ function respostaSelecionada(opcaoSelecionada) {
 function mostraResultado() {
   caixaPrincipal.style.display = "none";
   caixaResultado.style.display = "block";
-  textoResultado.textContent = "Suas respostas: " + historiaFinal;
+  textoResultado.textContent = "Suas respostas:\n" + historiaFinal;
 }
+
+// Reinicia o quiz
+botaoReiniciar.addEventListener("click", () => {
+  atual = 0;
+  historiaFinal = "";
+  caixaResultado.style.display = "none";
+  caixaPrincipal.style.display = "block";
+  mostraPergunta();
+});
 
 // Inicia o quiz
 mostraPergunta();
+
+

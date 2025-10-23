@@ -1,10 +1,10 @@
-const caixaPrincipal - document.querySelector(".caixa-principal");
-const caixaPerguntas -document.querySelector("caixa-perguntas");
-const caixaAlternativas -document.querySelector("caixa-alternativas");
-const caixaResultado -document.querySelector("caixa-resultado");
-const textoResultado -document.querySelector("texto-resultado");
+const caixaPrincipal =document.querySelector(".caixa-principal");
+const caixaPerguntas =document.querySelector("caixa-perguntas");
+const caixaAlternativas =document.querySelector("caixa-alternativas");
+const caixaResultado =document.querySelector("caixa-resultado");
+const textoResultado =document.querySelector("texto-resultado");
 
-const perguntas -[
+const perguntas =[
     {
         enunciando:
     Qual o futuro da IA?
@@ -92,3 +92,8 @@ function mostraPerguntas() {
     }
 
     function respostaSelecionada(opcaoSelecionada){
+        const afirmacoes = opcaoSelecionada.afirmacao;
+        historiaFinal+= afirmacoes+" ";
+        atual++;
+        monstraPergunta();
+    }

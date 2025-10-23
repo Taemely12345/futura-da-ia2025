@@ -1,18 +1,31 @@
-</<body>
- <div class="caixa-principal"></div>
-   <h1>Voce decide o futuro da IA</h1>
-</div>
-</bodbody>
- <div class="caixa-principal">
-  <h1>Você decide o futuro da IA</h1>
-  <div class="caixa-perguntas"></div>
-  <div class="caixa-alternativas"></div>
-  <div class="caixa-resultado">
-     <p class="texto-resultado"></p>
+<<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Você Decide o Futuro da IA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="caixa-principal">
+    <h1>Você decide o futuro da IA</h1>
+    <div class="caixa-perguntas">
+      <p id="pergunta">Qual direção você acha que a IA deve seguir?</p>
+    </div>
+    <div class="caixa-alternativas">
+      <button onclick="mostrarResultado('A IA deve ser mais autônoma.')">Autonomia</button>
+      <button onclick="mostrarResultado('A IA deve ser mais controlada por humanos.')">Controle humano</button>
+      <button onclick="mostrarResultado('A IA deve ser mais ética e transparente.')">Ética</button>
+    </div>
+    <div class="caixa-resultado">
+      <p class="texto-resultado" id="resultado">Escolha uma alternativa acima para ver o resultado.</p>
+    </div>
   </div>
- </div>
+
+  <script src="script.js"></script>
 </body>
- 
+</html>
+
 
 
 

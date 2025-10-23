@@ -6,10 +6,11 @@ const textoResultado =document.querySelector("texto-resultado");
 
 const perguntas =[
     {
-        enunciando:
-    Qual o futuro da IA?
-    A-No futuro,a inteligência artificial dominarà completamente os humanos e tomarà controle total do mundo.
-    B-Espera-se que a IA continue a evoluir,tornando-se mais sofisticada.
+
+  enunciado:Qual o futuro da IA?
+  alternativa:[
+   " A-No futuro,a inteligência artificial dominarà completamente os humanos e tomarà controle total do mundo.
+   " B-Espera-se que a IA continue a evoluir,tornando-se mais sofisticada"
 ]
  }
 {
